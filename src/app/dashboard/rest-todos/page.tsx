@@ -1,5 +1,7 @@
 import prisma from "@/app/lib/prisma";
-import { TodosGrid } from "@/todos/components/todosGrid";
+import { NewTodo } from "@/todos";
+
+import { TodosGrid } from "@/todos/components/TodosGrid";
 import { Todo } from '@prisma/client';
 
 
@@ -15,10 +17,11 @@ export default async function RestTodosPage() {
 
   return (
     <div>
-      {/* FORMULARIO PARA AGREGAR TODOS */}
-      {/* {
-        JSON.stringify(todos)
-      } */}
+      
+      <div className="w-full px-5 mx-5 my-5">
+        <NewTodo />
+      </div>
+      
       <TodosGrid todos={todos} />
     </div>
   );
