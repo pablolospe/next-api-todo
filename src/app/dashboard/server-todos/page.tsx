@@ -1,8 +1,11 @@
+export const dynamic = 'force-dynamic' 
+export const revalidate = 0
+
 import prisma from "@/app/lib/prisma";
 import { NewTodo } from "@/todos";
 
 import { TodosGrid } from "@/todos/components/TodosGrid";
-import { Todo } from '@prisma/client';
+// import { Todo } from '@prisma/client';
 
 
 export const metadata = {
@@ -11,10 +14,11 @@ export const metadata = {
 };
 
 
-export default async function RestTodosPage() {
+export default async function ServerTodosPage() {
 
   const todos = await prisma.todo.findMany({ orderBy: { description: 'asc' } });
-
+  console.log('construido');
+  
   return (
     <>
       <span className="text-5xl mb-10">Sever Actions</span>
